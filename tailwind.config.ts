@@ -1,3 +1,4 @@
+import { vendored } from "next/dist/server/future/route-modules/app-page/module.compiled"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -18,6 +19,13 @@ const config = {
       },
     },
     extend: {
+      colors:{
+        "background-1": "#16161a",
+        "background-2": "#242629",
+        "purple": "#7F5AF0",
+        "light-green": "#2cb67d",
+        "gray": "#94a1b2"
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -37,4 +45,4 @@ const config = {
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
-export default config
+export default config;

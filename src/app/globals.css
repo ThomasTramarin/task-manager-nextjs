@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
   
+strong{
+    @apply text-light-green;
+}
+
+h1{
+    @apply text-white text-3xl md:text-4xl xl:text-5xl text-balance tracking-wide mb-4 text-center font-bold;
+}
+
+p{
+    @apply text-gray;
+}
+
+.link{
+    @apply text-purple underline underline-offset-2 hover:text-purple/80;
+}
