@@ -11,7 +11,7 @@ strong{
 }
 
 h1{
-    @apply text-white text-3xl md:text-4xl xl:text-5xl text-balance tracking-wide mb-4 text-center font-bold;
+    @apply text-white text-3xl md:text-4xl xl:text-5xl text-balance tracking-wide mb-4 font-bold;
 }
 
 p{

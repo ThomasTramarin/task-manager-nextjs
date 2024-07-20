@@ -1,5 +1,6 @@
 import { SidebarLink } from "../types/navbarTypes";
 import { AiFillHome } from "react-icons/ai";
+import { IoMdAddCircle } from "react-icons/io";
 
 
 export const navAppLinks: SidebarLink[] = [
@@ -13,7 +14,7 @@ export const navAppLinks: SidebarLink[] = [
         id: 2,
         text: "Add",
         href: "/application/add",
-        icon: AiFillHome
+        icon: IoMdAddCircle
     },
     {
         id: 3,

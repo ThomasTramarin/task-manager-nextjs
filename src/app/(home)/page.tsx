@@ -11,7 +11,7 @@ export default function Home() {
         <NavbarHome />
         <section className="flex flex-col lg:flex-row">
           <div className="lg:w-1/2 p-5 flex flex-col justify-center items-center order-2 lg:order-1">
-            <h1>
+            <h1 className="text-center">
               <span className="text-purple">Managing</span> Your{" "}
               <span className="text-purple">Tasks</span> Has Never Been{" "}
               <span className="text-purple">Easier</span>

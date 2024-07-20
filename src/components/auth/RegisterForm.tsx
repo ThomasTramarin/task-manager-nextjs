@@ -26,7 +26,7 @@ export default function RegisterForm() {
   return (
     <div className="flex flex-col rounded-lg bg-background-2 p-4 max-w-[400px]">
       <form action={formAction} className="mb-3">
-        <h1 className="text-3xl lg:text-4xl">Create your account!</h1>
+        <h1 className="text-3xl lg:text-4xl text-center">Create your account!</h1>
 
         <div className="mb-5">
           <Label htmlFor="username">Username:</Label>

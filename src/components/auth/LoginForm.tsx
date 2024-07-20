@@ -34,7 +34,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex flex-col rounded-lg bg-background-2 p-4 max-w-[400px]">
-      <h1 className="text-3xl lg:text-4xl">Login with an existing account!</h1>
+      <h1 className="text-3xl lg:text-4xl text-center">Login with an existing account!</h1>
 
       <form className="mb-3" onSubmit={login}>
         <div className="mb-5">
