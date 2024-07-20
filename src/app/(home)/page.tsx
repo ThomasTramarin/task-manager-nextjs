@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import NavbarHome from "../../components/navbar/NavbarHome";
 import Link from "next/link";
 import Image from "next/image";
 import taskBro from "../../../public/images/Task-bro.webp";
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <header className="bg-background-1">
-        <Navbar />
+        <NavbarHome />
         <section className="flex flex-col lg:flex-row">
           <div className="lg:w-1/2 p-5 flex flex-col justify-center items-center order-2 lg:order-1">
             <h1>
@@ -22,7 +22,7 @@ export default function Home() {
               it <strong>effortless</strong> to organize and accomplish your
               goals.
             </p>
-            <Button size="lg">Start for Free</Button>
+            <Button size="lg" className="bg-purple hover:bg-purple/80">Start for Free</Button>
           </div>
           <div className="lg:w-1/2 p-10 md:p-20 lg:p-24 order-1 lg:order-2">
             <figure>

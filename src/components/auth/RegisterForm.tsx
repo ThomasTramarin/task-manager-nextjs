@@ -30,25 +30,25 @@ export default function RegisterForm() {
 
         <div className="mb-5">
           <Label htmlFor="username">Username:</Label>
-          <Input type="text" maxLength={16} id="username" name="username" placeholder="_your.username_"/>
+          <Input type="text" maxLength={16} id="username" name="username" placeholder="_your.username_" required={true} aria-required={true}/>
           <FormErrors errorFor="username" errors={formState.errors}/>
         </div>
         <div className="mb-5">
           <Label htmlFor="email">Email:</Label>
-          <Input type="email" maxLength={100} id="email" name="email" placeholder="email@example.com"/>
+          <Input type="email" maxLength={100} id="email" name="email" placeholder="email@example.com" required={true} aria-required={true}/>
           <FormErrors errorFor="email" errors={formState.errors}/>
         </div>
         <div className="mb-5">
           <Label htmlFor="password">Password:</Label>
-          <Input type="password" maxLength={50} id="password" name="password" placeholder="••••••••••"/>
+          <Input type="password" maxLength={50} id="password" name="password" placeholder="••••••••••" required={true} aria-required={true}/>
           <FormErrors errorFor="password" errors={formState.errors}/>
         </div>
         <div className="mb-5">
           <Label htmlFor="repeatPassword">Repeat Password:</Label>
-          <Input type="password" maxLength={50} id="repeatPassword" name="repeatPassword" placeholder="••••••••••"/>
+          <Input type="password" maxLength={50} id="repeatPassword" name="repeatPassword" placeholder="••••••••••" required={true} aria-required={true}/>
           <FormErrors errorFor="repeatPassword" errors={formState.errors}/>
         </div>
-        <Input type="submit" value="Register" className="cursor-pointer bg-purple"/>
+        <Input type="submit" value="Register" className="cursor-pointer bg-purple hover:bg-purple/80"/>
         <FormErrors errorFor="server" errors={formState.errors}/>
       </form>
       <p className="text-sm">Already have an account? <Link href="/login" className="link">Login</Link></p>

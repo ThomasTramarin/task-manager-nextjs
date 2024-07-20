@@ -1,9 +1,9 @@
-import { ErrorProp } from "../../data/types/authTypes";
+import { FormErrorProp } from "../../data/types/authTypes";
 
 //Component for displaying errors
-export default function FormErrors({ errorFor, errors }: { errorFor: string, errors: ErrorProp[] }): JSX.Element {
+export default function FormErrors({ errorFor, errors }: { errorFor: string, errors: FormErrorProp[] }): JSX.Element {
     //Find error 
-    const relevantErrors = errors?.filter((error: ErrorProp) => error.errorFor === errorFor) || [];
+    const relevantErrors = errors?.filter((error: FormErrorProp) => error.errorFor === errorFor) || [];
 
     //Display error
     return (

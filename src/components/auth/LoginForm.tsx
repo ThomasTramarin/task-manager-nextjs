@@ -26,7 +26,7 @@ export default function LoginForm() {
     });
 
     if (res?.ok) {
-      router.push("/application");
+      router.push("/application/today");
     } else {
       setError(res?.error || "An unexpected error occurred");
     }
@@ -42,6 +42,8 @@ export default function LoginForm() {
           <Input
             type="email"
             maxLength={100}
+            required={true}
+            aria-required={true}
             id="email"
             name="email"
             placeholder="email@example.com"
@@ -53,6 +55,8 @@ export default function LoginForm() {
           <Input
             type="password"
             maxLength={50}
+            required={true}
+            aria-required={true}
             id="password"
             name="password"
             placeholder="••••••••••"
@@ -62,7 +66,7 @@ export default function LoginForm() {
         <Input
           type="submit"
           value="Login"
-          className="cursor-pointer bg-purple"
+          className="cursor-pointer bg-purple hover:bg-purple/80"
         />
       </form>
       {error && (

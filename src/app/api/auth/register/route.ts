@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ValidationErrors } from "../../../../data/types/authTypes";
+import { RegisterValidationErrors, RegisterBody } from "../../../../data/types/authTypes";
 
 import { verifyUsername } from "../../../../helpers/auth/verifyUsername";
 import { verifyEmail } from "../../../../helpers/auth/verifyEmail";
@@ -15,9 +15,9 @@ const query = util.promisify(db.query).bind(db);
 //API request for registraton
 export async function POST(req: Request) {
   //Body values
-  const { username, email, password, repeatPassword } = await req.json();
+  const { username, email, password, repeatPassword }: RegisterBody = await req.json();
     
-  let validationErrors: ValidationErrors = [];
+  let validationErrors: RegisterValidationErrors = [];
   
   //Check validate user inputs
   const validUsername = verifyUsername(username);
