@@ -2,7 +2,7 @@ import { vendored } from "next/dist/server/future/route-modules/app-page/module.
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "selector",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',

@@ -22,11 +22,11 @@ export default function Home() {
               it <strong>effortless</strong> to organize and accomplish your
               goals.
             </p>
-            <Button size="lg" className="bg-purple hover:bg-purple/80">Start for Free</Button>
+            <Button size="lg" className="dark:bg-purple dark:hover:bg-purple/80">Start for Free</Button>
           </div>
           <div className="lg:w-1/2 p-10 md:p-20 lg:p-24 order-1 lg:order-2">
             <figure>
-              <Image src={taskBro} alt="Task Bro" />
+              <Image src={taskBro} alt="Task Bro" priority={true}/>
               <figcaption className="text-center text-white">
                 <Link
                   target="_blank"

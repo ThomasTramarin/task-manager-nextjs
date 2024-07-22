@@ -20,6 +20,7 @@ export default function TopBarApp() {
     <nav className="h-16 fixed lg:w-[calc(100%-256px)] w-full top-0 right-0 bg-background-2 flex items-center justify-between border-b border-[#484848] p-6 z-10">
       <Button
         size={"icon"}
+        variant={"transparent"}
         aria-label="Toggle menu Button"
         onClick={toggleMenu}
         className="lg:hidden"
@@ -28,11 +29,12 @@ export default function TopBarApp() {
       </Button>
 
       <div className="flex items-center gap-5">
-        <Button size={"iconSm"} aria-label="Notifications">
+        <Button size={"iconSm"} aria-label="Notifications" variant={"transparent"}>
           <IoNotifications size={25} color="white" />
         </Button>
         <Button
           size={"icon"}
+          variant={"transparent"}
           aria-label="User"
           className="border rounded-full"
         ></Button>

@@ -31,6 +31,7 @@ export default function TopBarApp() {
         </Link>
         <Button
           className="block lg:hidden"
+          variant={"transparent"}
           size="iconSm"
           aria-label="Close sidebar menu"
           onClick={toggleMenu}
@@ -52,6 +53,7 @@ export default function TopBarApp() {
               <Link
                 href={link.href}
                 className="flex items-center px-3 py-2 w-full h-full"
+                onClick={toggleMenu}
               >
                 {IconComponent && <IconComponent className="mr-2" />}{" "}
                 {link.text}

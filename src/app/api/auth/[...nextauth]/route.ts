@@ -12,24 +12,36 @@ export const authOptions = {
       id: "credentials",
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "email@example.com" },
-        password: { label: "Password", type: "password" }
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "email@example.com",
+        },
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
         if (!credentials) {
           throw new Error("Missing credentials");
         }
 
-        const { email, password } = credentials as { email: string; password: string };
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
 
         try {
           // Check if user exists
-          const users = await query("SELECT * FROM users WHERE email = ?", [email]);
+          const users = await query("SELECT * FROM users WHERE email = ?", [
+            email,
+          ]);
           const user = users[0];
 
           if (user) {
             // Check password
-            const isPasswordCorrect = await bcrypt.compare(password, user.password);
+            const isPasswordCorrect = await bcrypt.compare(
+              password,
+              user.password
+            );
 
             if (isPasswordCorrect) {
               return user;
@@ -40,7 +52,7 @@ export const authOptions = {
             throw new Error("User not found");
           }
         } catch (err: any) {
-          throw new Error(err); 
+          throw new Error(err);
         }
       },
     }),
@@ -49,8 +61,27 @@ export const authOptions = {
     error: "/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async jwt({ token, user }: { token: any; user?: any }) {
+      // Add user id to the token
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
+      return token;
+    },
+    async session({ session, token }: { session: any; token: any }) {
+      // Add the user id to the session
+      if (token) {
+        session.user.id = token.id;
+        session.user.email = token.email;
+      }
+      return session;
+    },
+  },
+  
 };
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

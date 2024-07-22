@@ -25,7 +25,7 @@ export default function RegisterForm() {
 
   return (
     <div className="flex flex-col rounded-lg bg-background-2 p-4 max-w-[400px]">
-      <form action={formAction} className="mb-3">
+      <form action={formAction} method="POST" className="mb-3">
         <h1 className="text-3xl lg:text-4xl text-center">Create your account!</h1>
 
         <div className="mb-5">
@@ -48,7 +48,7 @@ export default function RegisterForm() {
           <Input type="password" maxLength={50} id="repeatPassword" name="repeatPassword" placeholder="••••••••••" required={true} aria-required={true}/>
           <FormErrors errorFor="repeatPassword" errors={formState.errors}/>
         </div>
-        <Input type="submit" value="Register" className="cursor-pointer bg-purple hover:bg-purple/80"/>
+        <Input type="submit" value="Register" className="cursor-pointer dark:bg-purple dark:hover:bg-purple/80 font-medium"/>
         <FormErrors errorFor="server" errors={formState.errors}/>
       </form>
       <p className="text-sm">Already have an account? <Link href="/login" className="link">Login</Link></p>

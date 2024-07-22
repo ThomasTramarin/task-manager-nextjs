@@ -66,7 +66,7 @@ export default function LoginForm() {
         <Input
           type="submit"
           value="Login"
-          className="cursor-pointer bg-purple hover:bg-purple/80"
+          className="cursor-pointer dark:bg-purple dark:hover:bg-purple/80 font-medium"
         />
       </form>
       {error && (
