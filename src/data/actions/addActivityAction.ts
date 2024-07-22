@@ -57,7 +57,7 @@ export async function addActivityAction(
 
     //If successful, revalidate data
     revalidateTag("get-activities")
-    
+  
     return {
       ...prevState,
       success: true,

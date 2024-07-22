@@ -1,6 +1,7 @@
 import { SidebarLink } from "../types/navbarTypes";
 import { AiFillHome } from "react-icons/ai";
 import { IoMdAddCircle } from "react-icons/io";
+import { FaCheckCircle } from "react-icons/fa";
 
 
 export const navAppLinks: SidebarLink[] = [
@@ -18,9 +19,9 @@ export const navAppLinks: SidebarLink[] = [
     },
     {
         id: 3,
-        text: "fff",
-        href: "/application/fff",
-        icon: AiFillHome
+        text: "Completed",
+        href: "/application/completed",
+        icon: FaCheckCircle
     },
     {
         id: 4,
