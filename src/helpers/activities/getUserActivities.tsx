@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { IActivity } from "../../data/types/activitiesTypes";
 import { format } from "date-fns";
 

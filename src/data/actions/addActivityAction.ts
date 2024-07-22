@@ -1,6 +1,6 @@
 "use server";
 import db from "../../lib/db";
-import { authOptions } from "../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
 
 import util from "util";
