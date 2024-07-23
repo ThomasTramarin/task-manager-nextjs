@@ -1,6 +1,7 @@
 import { IActivity } from "../../data/types/activitiesTypes";
 import { Button } from "@/components/ui/button";
 import { FaEdit } from "react-icons/fa";
+import Link from "next/link";
 
 export default function CompletedCard({ data }: { data: IActivity[] }) {
   return (
@@ -51,14 +52,13 @@ export default function CompletedCard({ data }: { data: IActivity[] }) {
             ) : (
               <div className="text-light-green mt-3 text-sm">No keywords</div>
             )}
-
-            <Button
-              variant={"transparent"}
-              className="text-white text-xl mt-3"
-              size={"iconSm"}
-            >
-              <FaEdit />
-            </Button>
+              <Link
+                className="text-white text-xl block mt-3"
+                aria-label="Edit transaction"
+                href={`/application/modify/${activity.id_activity}`}
+              >
+                <FaEdit />
+              </Link>
           </div>
         </div>
       ))}

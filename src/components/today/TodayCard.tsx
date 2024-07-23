@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { completeTaskAction } from "../../data/actions/completeTaskAction";
+import Link from "next/link";
 
 export default function TodayCard({ data }: { data: IActivity[] }) {
   
@@ -60,13 +61,13 @@ export default function TodayCard({ data }: { data: IActivity[] }) {
               <div className="text-light-green mt-3 text-sm">No keywords</div>
             )}
             <div className="flex items-center justify-between mt-3">
-              <Button
-                variant={"transparent"}
+              <Link
                 className="text-white text-xl"
-                size={"iconSm"}
+                aria-label="Edit transaction"
+                href={`/application/modify/${activity.id_activity}`}
               >
                 <FaEdit />
-              </Button>
+              </Link>
               <Button
                 variant={"transparent"}
                 className="text-white text-xl"

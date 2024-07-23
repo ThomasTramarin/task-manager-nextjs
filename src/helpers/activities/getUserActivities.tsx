@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { IActivity } from "../../data/types/activitiesTypes";
-import { format } from "date-fns";
+import { eachHourOfInterval, format } from "date-fns";
+import { Recycle } from "lucide-react";
 
-export const getUserActivities = async (type: string) => {
+export const getUserActivities = async (type: string, id?:string) => {
   const session = await getServerSession(authOptions);
 
   const response = await fetch(`${process.env.ROOT_URL}/api/get-activities`, {
@@ -42,7 +43,13 @@ export const getUserActivities = async (type: string) => {
     });
 
     return filteredActivities;
-  }
+  } else if (type === "all") {
+    return data;
+  }else if (type === "id"){
+    const filteredActivities = activities.filter((activity: IActivity) =>{
+      return String(activity.id_activity) === id;
+    })
 
-  return data;
+    return filteredActivities[0];
+  }
 };
