@@ -34,7 +34,7 @@ export const authOptions = {
               email,
             ]);
             const user = users[0];
-  
+
             if (user) {
               // Check password
               const isPasswordCorrect = await bcrypt.compare(
@@ -66,6 +66,7 @@ export const authOptions = {
         if (user) {
           token.id = user.id;
           token.email = user.email;
+          token.username = user.username;
         }
         return token;
       },
@@ -74,6 +75,7 @@ export const authOptions = {
         if (token) {
           session.user.id = token.id;
           session.user.email = token.email;
+          session.user.username = token.username;
         }
         return session;
       },

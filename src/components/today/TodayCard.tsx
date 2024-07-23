@@ -1,16 +1,21 @@
 "use client";
 import { IActivity } from "../../data/types/activitiesTypes";
 import { FaCheck } from "react-icons/fa6";
+import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { completeTaskAction } from "../../data/actions/completeTaskAction";
+import { deleteTaskAction } from "../../data/actions/deleteTaskAction";
 import Link from "next/link";
 
 export default function TodayCard({ data }: { data: IActivity[] }) {
-  
-    const handleCompleteTask = async (id_activity: number) => {
-        completeTaskAction(id_activity);
-    }
+  const handleCompleteTask = async (id_activity: number) => {
+    completeTaskAction(id_activity);
+  };
+
+  const handleDeleteTask = async (id_activity: number) => {
+    deleteTaskAction(id_activity);
+  }
 
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
@@ -61,13 +66,24 @@ export default function TodayCard({ data }: { data: IActivity[] }) {
               <div className="text-light-green mt-3 text-sm">No keywords</div>
             )}
             <div className="flex items-center justify-between mt-3">
-              <Link
-                className="text-white text-xl"
-                aria-label="Edit transaction"
-                href={`/application/modify/${activity.id_activity}`}
-              >
-                <FaEdit />
-              </Link>
+              <div className="flex gap-1 items-center">
+                <Link
+                  className="text-white text-xl"
+                  aria-label="Edit transaction"
+                  href={`/application/modify/${activity.id_activity}`}
+                >
+                  <FaEdit />
+                </Link>
+                <Button
+                  variant={"transparent"}
+                  className="text-white text-xl"
+                  size={"iconSm"}
+                  aria-label="Delete task"
+                  onClick={() => handleDeleteTask(activity.id_activity)}
+                >
+                  <MdDelete />
+                </Button>
+              </div>
               <Button
                 variant={"transparent"}
                 className="text-white text-xl"

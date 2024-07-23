@@ -1,9 +1,17 @@
+"use client"
 import { IActivity } from "../../data/types/activitiesTypes";
 import { Button } from "@/components/ui/button";
 import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import Link from "next/link";
+import { deleteTaskAction } from "../../data/actions/deleteTaskAction";
 
 export default function CompletedCard({ data }: { data: IActivity[] }) {
+
+  const handleDelete = async (id_activity: number) => {
+    deleteTaskAction(id_activity)
+  }
+
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {data.map((activity: IActivity) => (
@@ -52,13 +60,25 @@ export default function CompletedCard({ data }: { data: IActivity[] }) {
             ) : (
               <div className="text-light-green mt-3 text-sm">No keywords</div>
             )}
+
+            <div className="flex justify-between items-center mt-3">
               <Link
-                className="text-white text-xl block mt-3"
+                className="text-white text-xl"
                 aria-label="Edit transaction"
                 href={`/application/modify/${activity.id_activity}`}
               >
                 <FaEdit />
               </Link>
+              <Button
+                className="text-white text-xl"
+                aria-label="Delete transaction"
+                size={"iconSm"}
+                variant={"transparent"}
+                onClick={() => handleDelete(activity.id_activity)}
+              >
+                <MdDelete />
+              </Button>
+            </div>
           </div>
         </div>
       ))}
