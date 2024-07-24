@@ -49,7 +49,7 @@ export default function RegisterForm() {
           <FormErrors errorFor="repeatPassword" errors={formState.errors}/>
         </div>
         <Input type="submit" value="Register" className="cursor-pointer dark:bg-purple dark:hover:bg-purple/80 font-medium"/>
-        <FormErrors errorFor="server" errors={formState.errors}/>
+        <FormErrors errorFor="server" aria-live="polite" errors={formState.errors}/>
       </form>
       <p className="text-sm">Already have an account? <Link href="/login" className="link">Login</Link></p>
     </div>

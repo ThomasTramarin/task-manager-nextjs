@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     try {
         const activities = await query(
-            "SELECT * FROM activities WHERE user_id = ?",
+            "SELECT * FROM activities WHERE user_id = ? ORDER BY expiration_date DESC",
             [userId]
         );
 

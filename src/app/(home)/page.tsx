@@ -10,7 +10,7 @@ export default function Home() {
       <header className="bg-background-1">
         <NavbarHome />
         <section className="flex flex-col lg:flex-row">
-          <div className="lg:w-1/2 p-5 flex flex-col justify-center items-center order-2 lg:order-1">
+          <div className="lg:w-1/2 p-5 flex flex-col justify-center items-center lg:mt-0 mt-10">
             <h1 className="text-center">
               <span className="text-purple">Managing</span> Your{" "}
               <span className="text-purple">Tasks</span> Has Never Been{" "}
@@ -22,7 +22,6 @@ export default function Home() {
               it <strong>effortless</strong> to organize and accomplish your
               goals.
             </p>
-            <Button size="lg" className="dark:bg-purple dark:hover:bg-purple/80">Start for Free</Button>
           </div>
           <div className="lg:w-1/2 p-10 md:p-20 lg:p-24 order-1 lg:order-2">
             <figure>
@@ -40,8 +39,8 @@ export default function Home() {
           </div>
         </section>
       </header>
-      <main className="p-10 bg-background-2">dfsdf
-        
+      <main className="p-10 bg-background-2">
+        Main content
       </main>
     </>
   );

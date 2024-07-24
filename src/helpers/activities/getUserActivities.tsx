@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
-import { IActivity } from "../../data/types/activitiesTypes";
+import { IActivity, IActivityDB } from "../../data/types/activitiesTypes";
 import { eachHourOfInterval, format } from "date-fns";
 import { Recycle } from "lucide-react";
 
@@ -28,7 +28,7 @@ export const getUserActivities = async (type: string, id?:string) => {
       (activity: IActivity) =>
         activity.expiration_date === today && activity.completed === 0
     );
-    return filteredActivities;
+    return filteredActivities.sort().reverse();
   } else if (type === "completed") {
     const now = new Date();
     const sevenDaysAgo = new Date(now);
@@ -42,14 +42,24 @@ export const getUserActivities = async (type: string, id?:string) => {
       return completedAt >= sevenDaysAgo && completedAt <= now;
     });
 
-    return filteredActivities;
+    return filteredActivities.sort((a: IActivity, b: IActivity) => {
+      const dateA = a.completed_date ? new Date(a.completed_date).getTime() : 0;
+      const dateB = b.completed_date ? new Date(b.completed_date).getTime() : 0;
+      return dateB - dateA;
+    });
   } else if (type === "all") {
-    return data;
+    return data.activities;
   }else if (type === "id"){
     const filteredActivities = activities.filter((activity: IActivity) =>{
       return String(activity.id_activity) === id;
     })
 
     return filteredActivities[0];
+  }else if(type === "upcoming"){
+    const filteredActivities = activities.filter(
+      (activity: IActivity) =>
+        activity.completed === 0
+    );
+    return filteredActivities.sort((a: IActivity, b: IActivity) => new Date(a.expiration_date).getTime() - new Date(b.expiration_date).getTime());
   }
 };

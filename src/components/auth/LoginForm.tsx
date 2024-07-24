@@ -70,8 +70,9 @@ export default function LoginForm() {
         />
       </form>
       {error && (
-        <div className="text-red-500 font-medium text-xs mt-1">{error}</div>
+        <div className="text-red-500 font-medium text-xs mt-1" aria-live="polite">{error}</div>
       )}
+      <p className="text-sm mt-2">Don&apos;t have an account? <Link href="/register" className="link">Register</Link></p>
     </div>
   );
 }

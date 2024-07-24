@@ -2,6 +2,7 @@ import { SidebarLink } from "../types/navbarTypes";
 import { AiFillHome } from "react-icons/ai";
 import { IoMdAddCircle } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
+import { TbCalendarUp } from "react-icons/tb";
 
 
 export const navAppLinks: SidebarLink[] = [
@@ -25,8 +26,8 @@ export const navAppLinks: SidebarLink[] = [
     },
     {
         id: 4,
-        text: "sfdfdf",
-        href: "/application/ggg",
-        icon: AiFillHome
+        text: "Upcoming",
+        href: "/application/upcoming",
+        icon: TbCalendarUp,
     },
 ]
